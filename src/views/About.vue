@@ -3,7 +3,7 @@
     <TeleportExample />
     <h1>This is an about page</h1>
     {{ counter }}
-    {{ test }}
+    <p>{{ test }}</p>
     <p>ddd{{ tt }}</p>
     <button @click="inc">inc</button>
 
@@ -25,9 +25,9 @@ export default {
     const store = useStore();
     const counter = computed(() => store.state.Counter.counter);
     const tt = computed(() => store.state.moduleA.count);
-    const test = computed(() => store.getters.time2);
+    const test = computed(() => store.getters["Counter/time2"]);
     const doubleCount = computed(() => store.getters["moduleA/doubleCount"]);
-    const inc = () => store.commit("setCounter", counter.value + 1);
+    const inc = () => store.commit("Counter/setCounter", counter.value + 1);
 
     const moduleAInc = () => store.commit("moduleA/increment");
 

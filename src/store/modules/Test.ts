@@ -11,7 +11,7 @@ export const moduleA: Module<ModuleAState, RootState> = {
     count: 0
   }),
   mutations: {
-    increment(state: { count: number }) {
+    increment(state) {
       // `state` is the local module state
       state.count++;
     }
@@ -30,7 +30,7 @@ export const moduleA: Module<ModuleAState, RootState> = {
       }
     },
     other({ dispatch }) {
-      dispatch("test", null, { root: true });
+      dispatch("Counter/test", null, { root: true });
     }
   }
 };
